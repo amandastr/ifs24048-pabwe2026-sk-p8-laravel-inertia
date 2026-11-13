@@ -10,6 +10,7 @@ abstract class TestCase extends BaseTestCase
     {
         parent::setUp();
 
-        config(['inertia.testing.page_paths' => [resource_path('js/Pages')]]);
+        config(['inertia.pages.paths' => [resource_path('js/Pages')]]);
+        $this->app->forgetInstance('inertia.view-finder');
     }
 }
