@@ -1,0 +1,41 @@
+@import 'tailwindcss';
+
+@source '../views';
+@source '../js';
+
+@theme {
+    --font-sans: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --font-serif: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Times New Roman', serif;
+    --animate-progress: progress 1.1s ease-in-out infinite;
+
+    @keyframes progress {
+        0% { transform: translateX(-100%); }
+        100% { transform: translateX(300%); }
+    }
+}
+
+@layer base {
+    button:not(:disabled),
+    [role='button']:not(:disabled),
+    [role='menuitem'],
+    select,
+    summary,
+    label[for],
+    input[type='file'],
+    a {
+        cursor: pointer;
+    }
+
+    :focus-visible {
+        outline: 2px solid #115e59;
+        outline-offset: 2px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
