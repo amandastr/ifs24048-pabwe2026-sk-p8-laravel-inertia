@@ -55,7 +55,7 @@ class PostExcelService
 
     public function import(User $user, UploadedFile $file): int
     {
-        $rows = IOFactory::load($file->getRealPath())->getActiveSheet()->toArray(null, true, false, false);
+        $rows = IOFactory::load($file->getRealPath(), 0, [IOFactory::READER_XLSX, IOFactory::READER_XLS])->getActiveSheet()->toArray(null, true, false, false);
         array_shift($rows);
 
         $count = 0;
